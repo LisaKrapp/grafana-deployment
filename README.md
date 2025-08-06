@@ -20,6 +20,7 @@ To deploy Grafana, run:
 
 ```bash
 ansible-playbook grafana-deployment.yml
+```
 
 Ensure your inventory and any required variables are properly configured before executing the playbook.
 
