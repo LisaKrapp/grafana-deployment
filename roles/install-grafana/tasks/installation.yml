@@ -1,0 +1,19 @@
+# tasks file for install-grafana
+- name: Copy installation file to host
+  ansible.builtin.copy:
+    src: "grafana-install.cnf"
+    dest: "/etc/yum.repos.d/grafana.repo"
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: Install grafana package
+  ansible.builtin.package:
+    name: grafana
+    state: present
+
+- name: Enable and start grafana service
+  ansible.builtin.service:
+    name: grafana-server
+    enabled: true
+    state: started
